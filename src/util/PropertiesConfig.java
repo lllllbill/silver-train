@@ -13,6 +13,7 @@ public class PropertiesConfig {
 		try {
 			return new String(str.getBytes("iso-8859-1"), "UTF-8");
 		} catch (UnsupportedEncodingException e) {
+			//怎么处理异常好呢 1.log记录 2.打印
 			e.printStackTrace();
 		}
 		return null;
@@ -30,6 +31,20 @@ public class PropertiesConfig {
 		
 	}
 	
+	public static boolean getBoolean(String key){
+		String str = resourceBundle.getString(key);
+		try {
+			str= new String(str.getBytes("iso-8859-1"), "UTF-8");
+			if("true".equals(str)){
+				return true;
+			}else{
+				return false;
+			}
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	public static void main(String args[]){
 		System.out.println(PropertiesConfig.getStr("test"));
 	}
