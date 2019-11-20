@@ -36,12 +36,13 @@ public class DBPool {
 	}
 	
 	
-	public static Connection getConnection() throws SQLException{
+	public static Connection getConnection(){
 		try{
 			return DATASOURCE.getConnection();
 		}catch(SQLException e){
-			//要不要抛出？
-			return null;
+			//记录错误
+			//getConnection错误
 		}
+		return null;
 	}
 }
