@@ -14,24 +14,22 @@ public class SchameImpl<T extends Schame> implements ISchameDB<T>{
 	@Override
 	public T query() {
 		//根据T里的成员结构来构建sql
-		String sql = sqlString.getSql("SELECT");
+		String sql = sqlString.getSql(SqlString.SELECT);
 		@SuppressWarnings("unchecked")
 		T t=(T) exeSql.queryByClassNameOne(graph(),sql);
 		return t;
 	}	
 	@Override
 	public int delete() {
-		return exeSql.excuteUpdate(null);
+		return exeSql.excuteUpdate(sqlString.getSql(SqlString.DELETE));
 	}
 	@Override
-	public int update() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updata() {
+		return exeSql.excuteUpdate(sqlString.getSql(SqlString.UPDATA));
 	}
 	@Override
 	public int insert() {
-		// TODO Auto-generated method stub
-		return 0;
+		return exeSql.excuteUpdate(sqlString.getSql(SqlString.INSERT));
 	}
 	
 	private Class<? extends AbstractSchame> graph(){
