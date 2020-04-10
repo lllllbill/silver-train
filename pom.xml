@@ -1,47 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>silver-train</groupId>
-  <artifactId>silver-train</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <sourceDirectory>src</sourceDirectory>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>1.7</source>
-          <target>1.7</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  
-  <properties>
-	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	<java.version>1.8</java.version>
-  </properties>
-  
-  <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
-		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-dbcp2</artifactId>
-		    <version>2.7.0</version>
-		</dependency>
-		
-		<dependency>
-		    <groupId>us.codecraft</groupId>
-		    <artifactId>webmagic-core</artifactId>
-		    <version>0.7.3</version>
-		</dependency>
-		<dependency>
-		    <groupId>us.codecraft</groupId>
-		    <artifactId>webmagic-extension</artifactId>
-		    <version>0.7.3</version>
-		</dependency>
-  
-  </dependencies>
-		
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.landcode</groupId>
+    <artifactId>land</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+        <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+        <gson.version>2.6</gson.version>
+    </properties>
+
+    <!-- spring-cloud所有项目依赖包 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- 必须引入gson 2.6版的替换2.2版的，不然会报错不兼容 -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <encoding>utf-8</encoding>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+    	<module>eureka</module>
+    <module>sliver-train-eureka-server</module>
+    <module>silver-train-eureka-server</module>
+    <module>silver-train-spider</module>
+    <module>silver-train-scheduler</module>
+    <module>silver-train-decorator</module>
+    <module>silver-train-common</module>
+  </modules>
 </project>
