@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.landcode</groupId>
-    <artifactId>land</artifactId>
+    <groupId>com.silver-train</groupId>
+    <artifactId>silver-train</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>pom</packaging>	
 
     <properties>
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
-        <gson.version>2.6</gson.version>
     </properties>
 
     <!-- spring-cloud所有项目依赖包 -->
-    <dependencyManagement>
+   <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -33,16 +32,7 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <!-- 必须引入gson 2.6版的替换2.2版的，不然会报错不兼容 -->
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
-        </dependency>
-    </dependencies>
-
-    <build>
+     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -56,12 +46,10 @@
         </plugins>
     </build>
     <modules>
-    	<module>eureka</module>
-    <module>sliver-train-eureka-server</module>
-    <module>silver-train-eureka-server</module>
-    <module>silver-train-spider</module>
-    <module>silver-train-scheduler</module>
-    <module>silver-train-decorator</module>
     <module>silver-train-common</module>
-  </modules>
+    <module>silver-train-decorator</module>
+    <module>silver-train-eureka</module>
+    <module>silver-train-scheduler</module>
+    <module>silver-train-spider</module>
+    </modules>
 </project>
