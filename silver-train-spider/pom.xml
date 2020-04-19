@@ -11,7 +11,7 @@
   <artifactId>silver-train-spider</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <name>silver-train-spider</name>
-  <url>http://maven.apache.org</url>
+  <url>http://maven.apache.org</url> 
   <properties>
     <webmagic-version>0.7.3</webmagic-version>
   </properties>
