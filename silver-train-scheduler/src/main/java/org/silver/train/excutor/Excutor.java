@@ -1,5 +1,5 @@
 package org.silver.train.excutor;
 
-public class Excutor {
+public interface  Excutor {
 
 }
