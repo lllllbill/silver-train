@@ -1,5 +1,9 @@
 package org.silver.train.analyser;
 
-public interface Analyser {
+import java.util.List;
 
+import org.silver.train.task.Task;
+
+public interface Analyser {
+	public List<Task> analyserTask(Task task);
 }
