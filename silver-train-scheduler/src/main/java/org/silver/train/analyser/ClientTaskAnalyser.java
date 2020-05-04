@@ -7,21 +7,29 @@ import java.util.Map;
 import org.silver.train.task.Task;
 import org.silver.train.task.TaskType;
 
+import org.springframework.beans.factory.BeanFactoryUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
 
 public class ClientTaskAnalyser extends AbstractAnalyser{
 	
-	Map<TaskType,TaskAnalysisStrategy> matchingBeans;
-
+	@Autowired
+    ApplicationContext context;
+	
+	Map<String,TaskAnalysisStrategy> matchingBeans;
+	
+	public ClientTaskAnalyser(){
+		this.matchingBeans = 
+				BeanFactoryUtils.beansOfTypeIncludingAncestors(context, TaskAnalysisStrategy.class, true, false);
+	}
+	
 	@Override
 	public List<Task> analyserTask(Task task) {
-		Task taskTemp = task;
+		if(task == null||matchingBeans == null){
+			throw new NullPointerException("task or matchingBeans can not be null");
+		}
 		List<Task> taskList = new ArrayList<Task>();
-		//接受任务，按照任务类型进行任务解析
-		//用什么的设计模式？
-		//模仿会员案例的设计模式
-		//遍历针对各种任务的执行方法
-		//还得有任务链
-		//
 		if (!matchingBeans.isEmpty()) {
             ArrayList<TaskAnalysisStrategy> discountStrategies = new ArrayList<>(matchingBeans.values());
             for (TaskAnalysisStrategy discountStrategy : discountStrategies) {
@@ -30,11 +38,8 @@ public class ClientTaskAnalyser extends AbstractAnalyser{
                 	taskList.addAll(discountStrategy.taskAnalySis(task));
                 }
             }
-        }else{
-        	//是要捕获错误还是？
         }
 		return taskList;
 	}
-	
 
 }

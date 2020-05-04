@@ -1,6 +1,10 @@
 package org.silver.train.excutor;
 
+import java.util.List;
+
+import org.silver.train.task.Task;
+
 public interface  Excutor {
-	//策略模式
+	void excutorJobs(List<Task> tasksToBePerformed);
 }
 	

@@ -1,5 +1,5 @@
 package org.silver.train.task;
 
 public enum TaskType {
-	POLYMERIZATION
+	POLYMERIZATION,SENDTASK,SPIDERTASK
 }
