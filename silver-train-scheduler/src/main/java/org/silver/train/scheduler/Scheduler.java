@@ -68,6 +68,7 @@ public class Scheduler{
 		return 0;
 	}
 	//合并任务
+	//要不要设计成接口类？
 	private List<Task> mergeTask(LinkedTask linkedTaskNode,Task newTask){
 		//返回为job会不会更好一点
 		return null;
