@@ -5,7 +5,7 @@ import java.util.List;
 import org.silver.train.task.Task;
 import org.silver.train.task.TemporalFrequency;
 
-public class QuartZExcutor extends AbstractExcutor{
+public class XXLJOBExcutor extends AbstractExcutor{
 
 
 	@Override

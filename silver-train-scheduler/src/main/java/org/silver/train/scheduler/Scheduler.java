@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 import org.silver.train.analyser.Analyser;
 import org.silver.train.analyser.ClientTaskAnalyser;
 import org.silver.train.excutor.Excutor;
-import org.silver.train.excutor.QuartZExcutor;
+import org.silver.train.excutor.XXLJOBExcutor;
+import org.silver.train.job.Job;
 import org.silver.train.task.Task;
-import org.silver.train.task.TaskType;
 import org.silver.train.task.TemporalFrequency;
 
 public class Scheduler{
@@ -28,13 +28,12 @@ public class Scheduler{
 	protected Analyser analyser;
 	protected Excutor excutor;
 	
-	private List<LinkedTask> spiderTaskArray = new CopyOnWriteArrayList<LinkedTask>();
-	private List<LinkedTask> sendTaskArray = new CopyOnWriteArrayList<LinkedTask>();
+	private List<LinkedTask> taskArray = new CopyOnWriteArrayList<LinkedTask>();
 	
 	//要设置成单例模式吗？还是用spring的注入
 	public Scheduler(){
 		this.analyser = new ClientTaskAnalyser();
-		this.excutor = new QuartZExcutor();
+		this.excutor = new XXLJOBExcutor();
 	}
 	
 	public boolean addNewTask(Task task){
@@ -42,17 +41,13 @@ public class Scheduler{
 		//从任务链表中获取相同类型任务
 		//合并任务
 		checkAndInitComponent();
-		List<Task> completeTaskArray = analyser.analyserTask(task);
+		List<Job> completeTaskArray = analyser.analyserTask(task);
 		List<Task> tasksToBePerformed = new ArrayList<Task>();
 		LinkedTask existingLinkedTaskNode = null;
-		for(Task completetask:completeTaskArray){
+		for(Job completeJob:completeTaskArray){
 			//遍历取出相同类型，相同页面的任务
-			if(completetask.getTaskType().equals(TaskType.SENDTASK)){
-				existingLinkedTaskNode = sendTaskArray.get(calculation(completetask.getTemporalFrequency()));
-			}else if(completetask.getTaskType().equals(TaskType.SPIDERTASK)){
-				existingLinkedTaskNode = spiderTaskArray.get(calculation(completetask.getTemporalFrequency()));
-			}
-			tasksToBePerformed.addAll(mergeTask(existingLinkedTaskNode,completetask));
+			existingLinkedTaskNode = taskArray.get(calculation(completeJob.getTemporalFrequency()));
+			tasksToBePerformed.addAll(mergeTask(existingLinkedTaskNode,completeJob));
 			excutor.excutorJobs(tasksToBePerformed);
 		}
 		return false;
@@ -69,7 +64,7 @@ public class Scheduler{
 	}
 	//合并任务
 	//要不要设计成接口类？
-	private List<Task> mergeTask(LinkedTask linkedTaskNode,Task newTask){
+	private List<Task> mergeTask(LinkedTask linkedTaskNode,Job newJob){
 		//返回为job会不会更好一点
 		return null;
 	}
