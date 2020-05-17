@@ -6,6 +6,10 @@ public class TemporalFrequency {
 	//模仿的是quartZ的时间表达方式
 	private String temporalFrequency;
 	
+	public static TemporalFrequency tempCalculation(TemporalFrequency temporalFrequency,int rank){
+		return null; 
+	}
+	
 	public TemporalFrequency(String temporalFrequency){
 		this.temporalFrequency = temporalFrequency;
 	}

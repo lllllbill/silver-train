@@ -11,5 +11,5 @@ public interface TaskAnalysisStrategy {
 	
 	boolean supportType(TaskType taskType);
 	
-	List<Job> taskAnalySis(Task task);
+	List<Job> taskAnalySis(Task task) throws Exception;
 }

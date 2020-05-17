@@ -2,6 +2,9 @@ package org.silver.train.task;
 
 import java.util.List;
 
+import org.silver.train.schema.Target;
+import org.silver.train.schema.User;
+
 /*
  * 抽象任务类
  */
@@ -11,11 +14,13 @@ public class Task {
 	//任务类型（用枚举感觉不是很好扩展）
 	private TaskType taskType;
 	//任务内容（网页A或者网页B）
-	private List<String> taskContent;
+	private Target taskTarget;
 	//任务等级
-	private String taskRank;
+	private int taskRank;
 	//任务操作
 	private String taskOption;
+	//用户
+	private User user;
 	public TemporalFrequency getTemporalFrequency() {
 		return temporalFrequency;
 	}
@@ -28,16 +33,10 @@ public class Task {
 	public void setTaskType(TaskType taskType) {
 		this.taskType = taskType;
 	}
-	public List<String> getTaskContent() {
-		return taskContent;
-	}
-	public void setTaskContent(List<String> taskContent) {
-		this.taskContent = taskContent;
-	}
-	public String getTaskRank() {
+	public int getTaskRank() {
 		return taskRank;
 	}
-	public void setTaskRank(String taskRank) {
+	public void setTaskRank(int taskRank) {
 		this.taskRank = taskRank;
 	}
 	public String getTaskOption() {
@@ -45,5 +44,17 @@ public class Task {
 	}
 	public void setTaskOption(String taskOption) {
 		this.taskOption = taskOption;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Target getTaskTarget() {
+		return taskTarget;
+	}
+	public void setTaskTarget(Target taskTarget) {
+		this.taskTarget = taskTarget;
 	}
 }

@@ -2,12 +2,14 @@ package org.silver.train.job;
 
 import java.util.List;
 
+import org.silver.train.schema.Target;
+import org.silver.train.schema.User;
 import org.silver.train.task.TemporalFrequency;
 
 
 public class Job {
-	private static String SPIDER = "spider";
-	private static String SEND = "send";
+	public static String SPIDER = "spider";
+	public static String SEND = "send";
 	
 	//时间表达式
 	private TemporalFrequency temporalFrequency;
@@ -15,15 +17,39 @@ public class Job {
 	private String jobType;
 	//任务内容（网页A或者网页B）
 	//用schema
-	private List<String> content;
+	private Target target;
 	//任务操作类型
 	private String option;
 	//目标
-	private String user;
+	private User user;
 	public TemporalFrequency getTemporalFrequency() {
 		return temporalFrequency;
 	}
 	public void setTemporalFrequency(TemporalFrequency temporalFrequency) {
 		this.temporalFrequency = temporalFrequency;
+	}
+	public String getJobType() {
+		return jobType;
+	}
+	public void setJobType(String jobType) {
+		this.jobType = jobType;
+	}
+	public String getOption() {
+		return option;
+	}
+	public void setOption(String option) {
+		this.option = option;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public Target getTarget() {
+		return target;
+	}
+	public void setTarget(Target target) {
+		this.target = target;
 	}
 }

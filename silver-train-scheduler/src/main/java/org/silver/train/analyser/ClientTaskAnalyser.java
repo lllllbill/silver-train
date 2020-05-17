@@ -37,7 +37,11 @@ public class ClientTaskAnalyser extends AbstractAnalyser{
             for (TaskAnalysisStrategy discountStrategy : discountStrategies) {
         		TaskType taskType= task.getTaskType();
                 if (discountStrategy.supportType(taskType)) {
-                	taskList.addAll(discountStrategy.taskAnalySis(task));
+                	try {
+						taskList.addAll(discountStrategy.taskAnalySis(task));
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
                 }
             }
         }

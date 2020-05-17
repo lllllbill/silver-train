@@ -1,6 +1,6 @@
 package org.silver.train.analyser;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.silver.train.job.Job;
@@ -24,7 +24,7 @@ public class PolyTaskAnalysisStrategy implements TaskAnalysisStrategy{
 	}
 
 	@Override
-	public List<Job> taskAnalySis(Task task) {
+	public List<Job> taskAnalySis(Task task) throws Exception {
 		/*
 		 * 新增任务-聚合任务
 		 * 每工作日早上8点钟
@@ -45,9 +45,11 @@ public class PolyTaskAnalysisStrategy implements TaskAnalysisStrategy{
 		 * 按照任务等级计算提前量-每天早上7点半
 		 * 爬取页面B
 		 */
-		List<Job> jobList = new ArrayList<Job>();
-		
-		return null;
+		List<Job> jobList = new LinkedList<Job>();
+		Job newJob = new Job();
+		Iterator itr  = jobList.iterator();
+		//newJob里添加
+		return jobList;
 	}
 
 }
