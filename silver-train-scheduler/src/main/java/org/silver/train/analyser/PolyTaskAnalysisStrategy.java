@@ -47,7 +47,6 @@ public class PolyTaskAnalysisStrategy implements TaskAnalysisStrategy{
 		 */
 		List<Job> jobList = new LinkedList<Job>();
 		Job newJob = new Job();
-		Iterator itr  = jobList.iterator();
 		//newJob里添加
 		return jobList;
 	}
