@@ -1,6 +1,7 @@
 package org.silver.train.task;
 
 import java.util.List;
+import java.util.Set;
 
 import org.silver.train.schema.Target;
 import org.silver.train.schema.User;
@@ -13,8 +14,8 @@ public class Task {
 	private TemporalFrequency temporalFrequency;
 	//任务类型（用枚举感觉不是很好扩展）
 	private TaskType taskType;
-	//任务内容（网页A或者网页B）
-	private Target taskTarget;
+	//任务内容 
+	private Set<Target> targetSet;
 	//任务等级
 	private int taskRank;
 	//任务操作
@@ -51,10 +52,10 @@ public class Task {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public Target getTaskTarget() {
-		return taskTarget;
+	public Set<Target> getTaskTarget() {
+		return targetSet;
 	}
-	public void setTaskTarget(Target taskTarget) {
-		this.taskTarget = taskTarget;
+	public void setTaskTarget(Set<Target> taskTarget) {
+		this.targetSet = taskTarget;
 	}
 }

@@ -2,35 +2,14 @@ package org.silver.train.schema;
 
 import java.util.Iterator;
 
-public class Target implements Iterable<Target>{
-	//内容（暂定）
-	private String content;
-	//链表咯
-	private Target next;
-	public String getContent() {
-		return content;
+public class Target {
+	private String targetName;
+
+	public String getTargetName() {
+		return targetName;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	@Override
-	public Iterator<Target> iterator() {
-		return new Iterator<Target>(){
-
-			@Override
-			public boolean hasNext() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public Target next() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-		};
+	public void setTargetName(String targetName) {
+		this.targetName = targetName;
 	}
 }

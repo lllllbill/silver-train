@@ -1,9 +1,10 @@
 package org.silver.train.analyser;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.silver.train.job.Job;
+import org.silver.train.schema.Target;
 import org.silver.train.task.Task;
 import org.silver.train.task.TaskType;
 /*
@@ -45,10 +46,27 @@ public class PolyTaskAnalysisStrategy implements TaskAnalysisStrategy{
 		 * 按照任务等级计算提前量-每天早上7点半
 		 * 爬取页面B
 		 */
-		List<Job> jobList = new LinkedList<Job>();
-		Job newJob = new Job();
-		//newJob里添加
-		return jobList;
+		List<Job> result = null;
+		if(task.getTaskTarget().size()>0){
+			result = new ArrayList<Job>(task.getTaskTarget().size()+1);
+			for(Target target:task.getTaskTarget()){
+				Job job = new Job();
+				job.setJobType(Job.SPIDER);
+				job.setOption(task.getTaskOption());
+				job.setUser(task.getUser());
+				job.setParam("");
+				job.setTemporalFrequency(task.getTemporalFrequency());
+				result.add(job);
+			}
+			Job job = new Job();
+			job.setJobType(Job.SEND);
+			job.setParam("");
+			job.setOption(task.getTaskOption());
+			job.setUser(task.getUser());
+			job.setTemporalFrequency(task.getTemporalFrequency());
+			result.add(job);
+		}
+		return result;
 	}
 
 }

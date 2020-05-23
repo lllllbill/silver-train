@@ -17,7 +17,7 @@ public class Job {
 	private String jobType;
 	//任务内容（网页A或者网页B）
 	//用schema
-	private Target target;
+	private String param;
 	//任务操作类型
 	private String option;
 	//目标
@@ -40,16 +40,16 @@ public class Job {
 	public void setOption(String option) {
 		this.option = option;
 	}
+	public String getParam() {
+		return param;
+	}
+	public void setParam(String param) {
+		this.param = param;
+	}
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
-	}
-	public Target getTarget() {
-		return target;
-	}
-	public void setTarget(Target target) {
-		this.target = target;
 	}
 }
