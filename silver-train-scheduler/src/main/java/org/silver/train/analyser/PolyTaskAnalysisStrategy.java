@@ -49,18 +49,24 @@ public class PolyTaskAnalysisStrategy implements TaskAnalysisStrategy{
 		List<Job> result = null;
 		if(task.getTaskTarget().size()>0){
 			result = new ArrayList<Job>(task.getTaskTarget().size()+1);
+			int i =0;
+			Class[] sendClassList = new Class[task.getTaskTarget().size()];
 			for(Target target:task.getTaskTarget()){
 				Job job = new Job();
 				job.setJobType(Job.SPIDER);
 				job.setOption(task.getTaskOption());
 				job.setUser(task.getUser());
-				job.setParam("");
+				Class[] spiderClassList = new Class[1];
+				spiderClassList[0] = Class.forName(target.getSpiderClassName());
+				sendClassList[i] = Class.forName(target.getSpiderClassName());
+				i++;
+				job.setTarget(spiderClassList);
 				job.setTemporalFrequency(task.getTemporalFrequency());
 				result.add(job);
 			}
 			Job job = new Job();
 			job.setJobType(Job.SEND);
-			job.setParam("");
+			job.setTarget(sendClassList);
 			job.setOption(task.getTaskOption());
 			job.setUser(task.getUser());
 			job.setTemporalFrequency(task.getTemporalFrequency());

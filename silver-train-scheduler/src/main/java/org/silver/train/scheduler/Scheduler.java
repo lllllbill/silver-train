@@ -15,14 +15,14 @@ import org.silver.train.task.TemporalFrequency;
 
 public class Scheduler{
 	
-	protected final static int INTERVAL = 30;
-	protected static TimeUnit TIMEUNIT =TimeUnit.MINUTES ;
+	private final  static int interval = 30;
+	private final  static TimeUnit timeUnit =TimeUnit.MINUTES;
 	
     protected final static int STAT_INIT = 0;
 
     protected final static int STAT_RUNNING = 1;
 
-    protected final static int STAT_STOPPED = 2;
+	protected final static int STAT_STOPPED = 2;
     
 	protected int state = 0 ;
 	protected Analyser analyser;
@@ -67,5 +67,12 @@ public class Scheduler{
 	private List<Task> mergeTask(LinkedTask linkedTaskNode,Job newJob){
 		//返回为job会不会更好一点
 		return null;
+	}
+	 public static int getInterval() {
+		return interval;
+	}
+
+	public static TimeUnit getTimeUnit() {
+		return timeUnit;
 	}
 }

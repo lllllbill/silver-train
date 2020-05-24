@@ -10,7 +10,7 @@ public class XXLJOBExcutor extends AbstractExcutor{
 
 	@Override
 	public String changeTemporalFrequency(TemporalFrequency temporalFrequency) {
-		return temporalFrequency.getTemporalFrequency();
+		return null;
 	}
 
 	@Override
