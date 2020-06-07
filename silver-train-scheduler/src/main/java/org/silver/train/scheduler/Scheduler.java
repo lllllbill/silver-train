@@ -1,6 +1,5 @@
 package org.silver.train.scheduler;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.TimeUnit;
@@ -11,12 +10,11 @@ import org.silver.train.excutor.Excutor;
 import org.silver.train.excutor.XXLJOBExcutor;
 import org.silver.train.job.Job;
 import org.silver.train.task.Task;
-import org.silver.train.task.TemporalFrequency;
 
 public class Scheduler{
 	
-	private final  static int interval = 30;
-	private final  static TimeUnit timeUnit =TimeUnit.MINUTES;
+	public static int interval = 30;
+	public static TimeUnit timeUnit =TimeUnit.MINUTES;
 	
     protected final static int STAT_INIT = 0;
 
@@ -28,27 +26,39 @@ public class Scheduler{
 	protected Analyser analyser;
 	protected Excutor excutor;
 	
-	private List<LinkedTask> taskArray = new CopyOnWriteArrayList<LinkedTask>();
+	private List<LinkedTask> taskArray;
 	
-	//要设置成单例模式吗？还是用spring的注入
+	//单例模式也是要有构造函数
 	public Scheduler(){
 		this.analyser = new ClientTaskAnalyser();
 		this.excutor = new XXLJOBExcutor();
+		setTaskArray();
+	}
+	
+	public Scheduler(Analyser analyser){
+		this.analyser = analyser;
+		this.excutor = new XXLJOBExcutor();
+		setTaskArray();
+	}
+	
+	public Scheduler(Analyser analyser,Excutor excutor){
+		this.analyser = analyser;
+		this.excutor = excutor;
+		setTaskArray();
 	}
 	
 	public boolean addNewTask(Task task){
-		//获取对应时间刻度上的任务链表
-		//从任务链表中获取相同类型任务
-		//合并任务
+		//检查组件
 		checkAndInitComponent();
-		List<Job> completeTaskArray = analyser.analyserTask(task);
-		List<Task> tasksToBePerformed = new ArrayList<Task>();
-		LinkedTask existingLinkedTaskNode = null;
-		for(Job completeJob:completeTaskArray){
-			//遍历取出相同类型，相同页面的任务
-			existingLinkedTaskNode = taskArray.get(calculation(completeJob.getTemporalFrequency()));
-			tasksToBePerformed.addAll(mergeTask(existingLinkedTaskNode,completeJob));
-			excutor.excutorJobs(tasksToBePerformed);
+		//开始任务合并操作
+		List<Job> newListJob = analyser.analyserTask(task);
+		//找到对应任务刻度上的任务链
+		//对相同的任务进行任务合并或者分隔操作
+		//合并任务
+		//任务分隔操作
+		//一种任务存
+		for(Job job:newListJob){
+			
 		}
 		return false;
 	}
@@ -58,21 +68,8 @@ public class Scheduler{
 			this.analyser = new ClientTaskAnalyser();
 		}
 	}
-	//计算时间
-	private int calculation(TemporalFrequency TemporalFrequency){
-		return 0;
-	}
-	//合并任务
-	//要不要设计成接口类？
-	private List<Task> mergeTask(LinkedTask linkedTaskNode,Job newJob){
-		//返回为job会不会更好一点
-		return null;
-	}
-	 public static int getInterval() {
-		return interval;
-	}
-
-	public static TimeUnit getTimeUnit() {
-		return timeUnit;
+	//获取taskArray
+	private void setTaskArray(){
+		taskArray = new CopyOnWriteArrayList<LinkedTask>();
 	}
 }

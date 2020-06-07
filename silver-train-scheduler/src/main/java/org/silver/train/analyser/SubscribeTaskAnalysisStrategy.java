@@ -29,10 +29,10 @@ public class SubscribeTaskAnalysisStrategy implements TaskAnalysisStrategy{
 		 * 新增订阅任务
 		 * 根据时间间隔来生成爬虫任务
 		 */
-		List<TemporalFrequency> temporalFrequencyList = TemporalFrequency.getAllCycleTime(Scheduler.getInterval(), Scheduler.getTimeUnit());
+		List<TemporalFrequency> temporalFrequencyList = TemporalFrequency.getAllCycleTime(Scheduler.interval, Scheduler.timeUnit);
 		List<Job> result = null;
 		if(task!=null){
-			result = new ArrayList(TemporalFrequency.cycleCount(Scheduler.getInterval(), Scheduler.getTimeUnit()));
+			result = new ArrayList(TemporalFrequency.cycleCount(Scheduler.interval, Scheduler.timeUnit));
 			for(TemporalFrequency temp:temporalFrequencyList){
 				for(Target target:task.getTaskTarget()){
 					Job job = new Job();
