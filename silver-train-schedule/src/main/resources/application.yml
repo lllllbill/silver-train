@@ -1,0 +1,43 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 443
+  #ssl:
+   # key-store: classpath:1955000__zjysx.cn.pfx
+   # key-store-password: 5j83o88P
+   # key-store-type: PKCS12
+  #connection-timeout: 5000ms
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        http-only: true
+
+spring:
+  # 环境 dev|test|prod
+  profiles:
+    active: dev
+  #messages:
+   # encoding: UTF-8
+   # basename: i18n/messages
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+   # thymeleaf 
+  thymeleaf:
+    prefix:classpath:/templates/
+    check-template-location:true
+    suffix:.html
+    encoding:UTF-8
+    content-type:text/html
+    mode:HTML5
+    cache:false
+
+
+ 
+
