@@ -1,7 +1,15 @@
 package com.silverTrain.schedule.entity;
 
 import java.util.Date;
-
+/**
+ * 
+* @Title: ScheduleJob.java
+* @Package com.silverTrain.schedule.entity
+* @Description: 任务类
+* @author Bill
+* @date 2020年7月4日
+* @version V1.0
+ */
 public class ScheduleJob {
   public static final String STATUS_RUNNING = "1";  //正在运行
 

@@ -4,7 +4,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Date;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.silverTrain.schedule.entity.ScheduleJob;
+import com.silverTrain.schedule.entity.ScheduleLog;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 
@@ -15,6 +20,7 @@ import com.silverTrain.schedule.entity.ScheduleJob;
 * @date 2020年7月1日
 * @version V1.0
  */
+@Slf4j
 public class TaskUtils {
   /**
    * 通过反射调用scheduleJob中定义的方法
@@ -35,7 +41,7 @@ public class TaskUtils {
       } catch (Exception e) {
         flag = false;
         STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-        STimetaskLog tlog = new STimetaskLog();
+        ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
@@ -50,7 +56,7 @@ public class TaskUtils {
       flag = false;
       log.error("任务名称 = [" + scheduleJob.getJobName() + "]---------------未启动成功，请检查是否配置正确！！！");
       STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-      STimetaskLog tlog = new STimetaskLog();
+      ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
@@ -67,7 +73,7 @@ public class TaskUtils {
       flag = false;
       log.error("任务名称 = [" + scheduleJob.getJobName() + "]---------------未启动成功，方法名设置错误！！！");
       STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-      STimetaskLog tlog = new STimetaskLog();
+      ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
@@ -84,7 +90,7 @@ public class TaskUtils {
       } catch (IllegalAccessException e) {
         flag = false;
         STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-        STimetaskLog tlog = new STimetaskLog();
+        ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
@@ -95,7 +101,7 @@ public class TaskUtils {
       } catch (IllegalArgumentException e) {
         flag = false;
         STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-        STimetaskLog tlog = new STimetaskLog();
+        ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
@@ -106,7 +112,7 @@ public class TaskUtils {
       } catch (InvocationTargetException e) {
         flag = false;
         STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-        STimetaskLog tlog = new STimetaskLog();
+        ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
@@ -119,7 +125,7 @@ public class TaskUtils {
     if(flag){
       System.out.println("任务名称 = [" + scheduleJob.getJobName() + "]----------启动成功");
       STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
-      STimetaskLog tlog = new STimetaskLog();
+      ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
