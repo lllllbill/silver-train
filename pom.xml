@@ -62,5 +62,6 @@
     <modules>
     	<module>silver-train-schedule</module>
     	<module>silver-train-spider</module>
+    	<module>silver-train-common</module>
     </modules>
 </project>

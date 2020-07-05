@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.silverTrain.schedule.entity.ScheduleJob;
 import com.silverTrain.schedule.entity.ScheduleLog;
+import com.silverTrain.schedule.service.ScheduleLogService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -40,14 +41,14 @@ public class TaskUtils {
         object = clazz.newInstance();
       } catch (Exception e) {
         flag = false;
-        STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+        ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
         ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"对应的class");
         tlog.setState("fail");
-        sTimetaskLogService.insertSelective(tlog);
+        ScheduleLogService.insertSelective(tlog);
         e.printStackTrace();
       }
 
@@ -55,14 +56,14 @@ public class TaskUtils {
     if (object == null) {
       flag = false;
       log.error("任务名称 = [" + scheduleJob.getJobName() + "]---------------未启动成功，请检查是否配置正确！！！");
-      STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+      ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
       ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setReason("未找到"+scheduleJob.getBeanClass()+"对应的class");
       tlog.setState("fail");
-      sTimetaskLogService.insertSelective(tlog);
+      ScheduleLogService.insertSelective(tlog);
       return;
     }
     clazz = object.getClass();
@@ -72,14 +73,14 @@ public class TaskUtils {
     } catch (NoSuchMethodException e) {
       flag = false;
       log.error("任务名称 = [" + scheduleJob.getJobName() + "]---------------未启动成功，方法名设置错误！！！");
-      STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+      ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
       ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法");
       tlog.setState("fail");
-      sTimetaskLogService.insertSelective(tlog);
+      ScheduleLogService.insertSelective(tlog);
     } catch (SecurityException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -89,48 +90,48 @@ public class TaskUtils {
         method.invoke(object, scheduleJob.getJobData());
       } catch (IllegalAccessException e) {
         flag = false;
-        STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+        ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
         ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        sTimetaskLogService.insertSelective(tlog);
+        ScheduleLogService.insertSelective(tlog);
         e.printStackTrace();
       } catch (IllegalArgumentException e) {
         flag = false;
-        STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+        ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
         ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        sTimetaskLogService.insertSelective(tlog);
+        ScheduleLogService.insertSelective(tlog);
         e.printStackTrace();
       } catch (InvocationTargetException e) {
         flag = false;
-        STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+        ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
         ScheduleLog tlog = new ScheduleLog();
         tlog.setId(UUIDUtil.getUUID());
         tlog.setCreateDate(new Date());
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        sTimetaskLogService.insertSelective(tlog);
+        ScheduleLogService.insertSelective(tlog);
         e.printStackTrace();
       }
     }
     if(flag){
       System.out.println("任务名称 = [" + scheduleJob.getJobName() + "]----------启动成功");
-      STimetaskLogService sTimetaskLogService = (STimetaskLogService) ApplicationContextUtils.getBean(STimetaskLogService.class);
+      ScheduleLogService ScheduleLogService = (ScheduleLogService) SpringUtils.getBean(ScheduleLogService.class);
       ScheduleLog tlog = new ScheduleLog();
       tlog.setId(UUIDUtil.getUUID());
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setState("success");
-      sTimetaskLogService.insertSelective(tlog);
+      ScheduleLogService.insertSelective(tlog);
     }
     
   }
