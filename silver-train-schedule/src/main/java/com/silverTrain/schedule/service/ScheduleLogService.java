@@ -11,5 +11,4 @@ import com.silverTrain.common.generic.GenericService;
 * @version V1.0
  */
 public interface ScheduleLogService extends GenericService{
-
 }

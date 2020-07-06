@@ -48,7 +48,7 @@ public class TaskUtils {
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"对应的class");
         tlog.setState("fail");
-        ScheduleLogService.insertSelective(tlog);
+        ScheduleLogService.insert(tlog);
         e.printStackTrace();
       }
 
@@ -63,7 +63,7 @@ public class TaskUtils {
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setReason("未找到"+scheduleJob.getBeanClass()+"对应的class");
       tlog.setState("fail");
-      ScheduleLogService.insertSelective(tlog);
+      ScheduleLogService.insert(tlog);
       return;
     }
     clazz = object.getClass();
@@ -80,7 +80,7 @@ public class TaskUtils {
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法");
       tlog.setState("fail");
-      ScheduleLogService.insertSelective(tlog);
+      ScheduleLogService.insert(tlog);
     } catch (SecurityException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
@@ -97,7 +97,7 @@ public class TaskUtils {
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        ScheduleLogService.insertSelective(tlog);
+        ScheduleLogService.insert(tlog);
         e.printStackTrace();
       } catch (IllegalArgumentException e) {
         flag = false;
@@ -108,7 +108,7 @@ public class TaskUtils {
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        ScheduleLogService.insertSelective(tlog);
+        ScheduleLogService.insert(tlog);
         e.printStackTrace();
       } catch (InvocationTargetException e) {
         flag = false;
@@ -119,7 +119,7 @@ public class TaskUtils {
         tlog.setJobId(scheduleJob.getJobId().toString());
         tlog.setReason("未找到"+scheduleJob.getBeanClass()+"类下"+scheduleJob.getMethodName()+"对应的方法参数设置错误");
         tlog.setState("fail");
-        ScheduleLogService.insertSelective(tlog);
+        ScheduleLogService.insert(tlog);
         e.printStackTrace();
       }
     }
@@ -131,7 +131,7 @@ public class TaskUtils {
       tlog.setCreateDate(new Date());
       tlog.setJobId(scheduleJob.getJobId().toString());
       tlog.setState("success");
-      ScheduleLogService.insertSelective(tlog);
+      ScheduleLogService.insert(tlog);
     }
     
   }

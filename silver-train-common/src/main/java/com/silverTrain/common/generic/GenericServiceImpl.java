@@ -8,6 +8,11 @@ package com.silverTrain.common.generic;
 * @date 2020年7月5日
 * @version V1.0
  */
-public abstract class GenericServiceImpl implements GenericService{
-
+public abstract class GenericServiceImpl<T extends Object> implements GenericService<T>{
+	
+	protected abstract GenericMapper<T> getGenericMapper();
+	
+	public int insert(T record){
+		return this.getGenericMapper().insert(record);
+	}
 }
