@@ -1,6 +1,7 @@
 package com.silverTrain.schedule.service;
 
-import com.silverTrain.common.generic.GenericService;
+import com.silverTrain.schedule.entity.ScheduleLog;
+
 /**
  * 
 * @Title: ScheduleJobService.java
@@ -10,5 +11,6 @@ import com.silverTrain.common.generic.GenericService;
 * @date 2020年7月5日
 * @version V1.0
  */
-public interface ScheduleLogService extends GenericService{
+public interface ScheduleLogService{
+	int insert(ScheduleLog entity);
 }

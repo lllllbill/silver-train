@@ -1,8 +1,8 @@
 package com.silverTrain.schedule.mapper;
 
-import com.silverTrain.common.generic.GenericMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.silverTrain.schedule.entity.ScheduleLog;
 
-public interface ScheduleLogMapper extends GenericMapper<ScheduleLog>{
+public interface ScheduleLogMapper extends BaseMapper<ScheduleLog> {
 
 }

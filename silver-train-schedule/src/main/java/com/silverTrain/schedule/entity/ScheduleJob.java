@@ -1,6 +1,8 @@
 package com.silverTrain.schedule.entity;
 
 import java.util.Date;
+
+import lombok.Data;
 /**
  * 
 * @Title: ScheduleJob.java
@@ -10,6 +12,7 @@ import java.util.Date;
 * @date 2020年7月4日
 * @version V1.0
  */
+@Data
 public class ScheduleJob {
   public static final String STATUS_RUNNING = "1";  //正在运行
 
@@ -71,111 +74,5 @@ public class ScheduleJob {
   private String methodName;
 
   private String jobData;
-
-  public String getJobData() {
-    return jobData;
-  }
-
-  public void setJobData(String jobData) {
-    this.jobData = jobData;
-  }
-
- 
-
-  public String getJobId() {
-    return jobId;
-  }
-
-  public void setJobId(String jobId) {
-    this.jobId = jobId;
-  }
-
-  public Date getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(Date createTime) {
-    this.createTime = createTime;
-  }
-
-  public Date getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(Date updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getJobName() {
-    return jobName;
-  }
-
-  public void setJobName(String jobName) {
-    this.jobName = jobName;
-  }
-
-  public String getJobGroup() {
-    return jobGroup;
-  }
-
-  public void setJobGroup(String jobGroup) {
-    this.jobGroup = jobGroup;
-  }
-
-  public String getJobStatus() {
-    return jobStatus;
-  }
-
-  public void setJobStatus(String jobStatus) {
-    this.jobStatus = jobStatus;
-  }
-
-  public String getCronExpression() {
-    return cronExpression;
-  }
-
-  public void setCronExpression(String cronExpression) {
-    this.cronExpression = cronExpression;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getBeanClass() {
-    return beanClass;
-  }
-
-  public void setBeanClass(String beanClass) {
-    this.beanClass = beanClass;
-  }
-
-  public String getIsConcurrent() {
-    return isConcurrent;
-  }
-
-  public void setIsConcurrent(String isConcurrent) {
-    this.isConcurrent = isConcurrent;
-  }
-
-  public String getSpringId() {
-    return springId;
-  }
-
-  public void setSpringId(String springId) {
-    this.springId = springId;
-  }
-
-  public String getMethodName() {
-    return methodName;
-  }
-
-  public void setMethodName(String methodName) {
-    this.methodName = methodName;
-  }
 
 }

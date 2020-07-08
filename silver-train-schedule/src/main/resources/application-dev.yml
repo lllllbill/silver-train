@@ -50,13 +50,6 @@ spring:
         reset-enable: true
         #启用
         enabled: true
-mybatis:
-  # model的包
-  type-aliases-package: 
-  configuration:
-　　# 开启驼峰uName自动映射到u_name
-    map-underscore-to-camel-case: true
-
 # 打印sql
 logging:
   level:

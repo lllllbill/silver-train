@@ -3,8 +3,6 @@ package com.silverTrain.schedule.serviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.silverTrain.common.generic.GenericMapper;
-import com.silverTrain.common.generic.GenericServiceImpl;
 import com.silverTrain.schedule.entity.ScheduleLog;
 import com.silverTrain.schedule.mapper.ScheduleLogMapper;
 import com.silverTrain.schedule.service.ScheduleLogService;
@@ -21,13 +19,12 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-public class ScheduleLogServiceImpl extends GenericServiceImpl<ScheduleLog> implements ScheduleLogService{
-
+public class ScheduleLogServiceImpl implements ScheduleLogService{
 	@Autowired
 	private ScheduleLogMapper scheduleLogMapper;
-	@Override
-	protected GenericMapper<ScheduleLog> getGenericMapper() {
-		return this.scheduleLogMapper;
+
+	public int insert(ScheduleLog entity) {
+		return scheduleLogMapper.insert(entity);
 	}
 	
 }
