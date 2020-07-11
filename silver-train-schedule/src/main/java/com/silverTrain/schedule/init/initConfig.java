@@ -16,8 +16,4 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class initConfig {
 
-	@Bean(name="schedulerFactory")
-    public  SchedulerFactory   initSchedulerFactoryBean() {
-        return new org.quartz.impl.StdSchedulerFactory();
-    }
 }

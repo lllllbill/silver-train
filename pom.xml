@@ -15,7 +15,7 @@
         <commons.lang.version>3.7</commons.lang.version>
         <Springboot.version>2.2.0.RELEASE</Springboot.version>
         <lombok.version>1.18.4</lombok.version>
-        <mybatisplus.version>3.0.7</mybatisplus.version>
+        <mybatisplus.version>3.3.2</mybatisplus.version>
     </properties>
     
 	<dependencies>
@@ -30,6 +30,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${Springboot.version}</version>
         </dependency>
+        
+        <dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-test</artifactId>
+		    <version>${Springboot.version}</version>
+		</dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -55,12 +61,15 @@
 	</dependencies>
 
     <build>
-	    <plugins>
-	        <plugin>
+		<plugins>
+			<plugin>
 	            <groupId>org.springframework.boot</groupId>
 	            <artifactId>spring-boot-maven-plugin</artifactId>
-	        </plugin>
-	    </plugins>
+	            <configuration>
+	                <fork>true</fork>
+	            </configuration>
+       		 </plugin>
+		</plugins>
 	</build>
     <modules>
     	<module>silver-train-schedule</module>

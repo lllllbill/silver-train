@@ -30,14 +30,14 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class QuartZOperate {
-	private static SchedulerFactory schedFact ;
+	private static Scheduler Scheduler ;
 	
 	@Autowired
-	private SchedulerFactory schedFactBean;
+	private Scheduler scheduler;
 	 
     @PostConstruct
     public void init(){
-        this.schedFact = schedFactBean;
+        this.Scheduler = scheduler;
     }
     
 	public static void addJob(ScheduleJob job) throws SchedulerException{
@@ -46,7 +46,7 @@ public class QuartZOperate {
 	      return;
 	    }
 
-	    Scheduler scheduler = schedFact.getScheduler();
+	    Scheduler scheduler = Scheduler;
 	    log.debug(scheduler + "...........................................add");
 	    TriggerKey triggerKey = TriggerKey.triggerKey(job.getJobName(), job.getJobGroup());
 

@@ -1,4 +1,4 @@
-package com.silverTrain.schedule.serviceImpl;
+package com.silverTrain.schedule.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
