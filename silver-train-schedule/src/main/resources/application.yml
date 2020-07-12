@@ -1,10 +1,10 @@
 # Tomcat
 server:
-  tomcat:
-    uri-encoding: UTF-8
-    max-threads: 1000
-    min-spare-threads: 30
-  port: 443
+  #tomcat:
+   # uri-encoding: UTF-8
+   # max-threads: 1000
+   # min-spare-threads: 30
+  #port: 443
   #ssl:
    # key-store: classpath:1955000__zjysx.cn.pfx
    # key-store-password: 5j83o88P

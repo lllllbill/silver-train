@@ -43,13 +43,15 @@ public class JobOpTest {
 		  System.out.println("hello Trigger");
 		  // Tell quartz to schedule the job using our trigger
 		  scheduler.scheduleJob(job, trigger);
+		  while(true){
+			  
+		  }
+	}
+}
+class HelloJob implements Job{
+
+	public void execute(JobExecutionContext context) throws JobExecutionException {
+		System.out.println("hello quartZ");
 	}
 	
-	class HelloJob implements Job{
-
-		public void execute(JobExecutionContext context) throws JobExecutionException {
-			System.out.println("hello quartZ");
-		}
-		
-	}
 }

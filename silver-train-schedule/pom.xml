@@ -9,8 +9,7 @@
   <name>silver-train-schedule</name>
   
   <properties>
-  		<quartz.version>2.2.5.RELEASE</quartz.version>
-  		<thymeleaf.version>2.2.0.RELEASE</thymeleaf.version>
+  		<springBoot.version>2.1.7.RELEASE</springBoot.version>
   		<common_lang.version>3.10</common_lang.version>
   </properties>
     
@@ -19,13 +18,13 @@
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-quartz</artifactId>
-		    <version>${quartz.version}</version>
+		    <version>${springBoot.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
-		    <version>${thymeleaf.version}</version>
+		    <version>${springBoot.version}</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
