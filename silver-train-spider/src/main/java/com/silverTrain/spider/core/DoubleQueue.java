@@ -14,11 +14,11 @@ import us.codecraft.webmagic.Request;
 * @date 2020年7月20日
 * @version V1.0
  */
-public class UrlQueue {
+public class DoubleQueue {
 	private BlockingQueue<Request> quicklyQueue ;
 	private BlockingQueue<Request> slowlyQueue;
 	
-	public UrlQueue(){
+	public DoubleQueue(){
 		this.quicklyQueue = new LinkedBlockingQueue<Request>(1000);
 		this.slowlyQueue = new LinkedBlockingQueue<Request>(1000);
 	}

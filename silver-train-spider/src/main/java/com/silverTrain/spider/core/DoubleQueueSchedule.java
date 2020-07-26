@@ -7,10 +7,10 @@ import us.codecraft.webmagic.Task;
 import us.codecraft.webmagic.scheduler.DuplicateRemovedScheduler;
 import us.codecraft.webmagic.scheduler.MonitorableScheduler;
 
-public class UrlQueueSchedule extends DuplicateRemovedScheduler implements MonitorableScheduler {
+public class DoubleQueueSchedule extends DuplicateRemovedScheduler implements MonitorableScheduler {
 
 	@Autowired
-	private UrlQueue urlQueue;
+	private DoubleQueue urlQueue;
 	
  	@Override
     public void pushWhenNoDuplicate(Request request, Task task) {
@@ -24,7 +24,7 @@ public class UrlQueueSchedule extends DuplicateRemovedScheduler implements Monit
  	
  	@Override
     public int getLeftRequestsCount(Task task) {
-        return urlQueue.size();
+        return this.urlQueue.size();
     }
  	
  	@Override
