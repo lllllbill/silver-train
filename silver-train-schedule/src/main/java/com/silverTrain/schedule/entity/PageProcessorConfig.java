@@ -8,7 +8,7 @@ import lombok.Data;
  * 
 * @Title: PageProcessConfig.java
 * @Package com.silverTrain.schedule.entity
-* @Description: 页面解析
+* @Description: 页面解析配置
 * @author Bill
 * @date 2020年7月23日
 * @version V1.0
@@ -44,6 +44,13 @@ public class PageProcessorConfig {
 	 * 正则匹配
 	 */
 	private String regex;
-	
+	/**
+	 * 上层pageProcessor
+	 */
+	private String parentPageProcessorId;
+	/**
+	 * 上层pageProcessor
+	 */
+	private String childPageProcessorId;
 
 }
