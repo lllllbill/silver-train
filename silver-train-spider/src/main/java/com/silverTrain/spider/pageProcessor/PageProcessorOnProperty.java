@@ -9,6 +9,15 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Documented
+/**
+ * 
+* @Title: PageProcessorOnProperty.java
+* @Package com.silverTrain.spider.pageProcessor
+* @Description: 用于处理PageProcessor是否注入
+* @author Bill
+* @date 2020年8月4日
+* @version V1.0
+ */
 public @interface PageProcessorOnProperty {
 	String className();
 }

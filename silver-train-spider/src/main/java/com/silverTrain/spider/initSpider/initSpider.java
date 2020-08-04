@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.silverTrain.spider.core.DoubleQueueSchedule;
-import com.silverTrain.spider.core.PageProcessorSelector;
+import com.silverTrain.spider.pageProcessor.PageProcessorSelector;
 
 import us.codecraft.webmagic.Spider;
 
