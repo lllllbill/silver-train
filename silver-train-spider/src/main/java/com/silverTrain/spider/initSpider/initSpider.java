@@ -1,22 +1,15 @@
-package com.silverTrain.spider.core;
+package com.silverTrain.spider.initSpider;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.silverTrain.spider.core.DoubleQueueSchedule;
+import com.silverTrain.spider.core.PageProcessorSelector;
 
 import us.codecraft.webmagic.Spider;
 
 @Configuration
 public class initSpider {
-	
-	@Bean
-	public DoubleQueue getQueue(){
-		return new DoubleQueue();
-	}
-	
-	@Bean
-	public PageProcessorSelector getPageProcessorSelector(){
-		return new PageProcessorSelector();
-	}
 	
 	@Bean
 	public Spider getSpider(DoubleQueueSchedule scheduler,PageProcessorSelector selector){

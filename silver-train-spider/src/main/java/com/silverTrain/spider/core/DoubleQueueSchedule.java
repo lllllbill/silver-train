@@ -14,7 +14,7 @@ public class DoubleQueueSchedule extends DuplicateRemovedScheduler implements Mo
 	
  	@Override
     public void pushWhenNoDuplicate(Request request, Task task) {
-        this.urlQueue.putSlowly(request);
+        this.urlQueue.putQuickly(request);
     }
  	
  	@Override

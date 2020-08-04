@@ -33,6 +33,10 @@ public class PageProcessorConfig {
 	 */
 	private String description;
 	/**
+	 * 任务执行时调用 类名
+	 */
+	private String className;
+	/**
 	 * 任务执行时调用哪个类的方法 包名+类名
 	 */
 	private String beanClass;
@@ -49,7 +53,7 @@ public class PageProcessorConfig {
 	 */
 	private String parentPageProcessorId;
 	/**
-	 * 上层pageProcessor
+	 * 下层pageProcessor
 	 */
 	private String childPageProcessorId;
 
