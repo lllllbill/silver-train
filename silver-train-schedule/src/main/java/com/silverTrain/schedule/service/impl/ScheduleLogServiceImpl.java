@@ -3,7 +3,7 @@ package com.silverTrain.schedule.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.silverTrain.schedule.entity.ScheduleLog;
+import com.silverTrain.common.entity.ScheduleLog;
 import com.silverTrain.schedule.mapper.ScheduleLogMapper;
 import com.silverTrain.schedule.service.ScheduleLogService;
 

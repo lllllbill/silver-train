@@ -1,6 +1,6 @@
 package com.silverTrain.schedule.service;
 
-import com.silverTrain.schedule.entity.ScheduleLog;
+import com.silverTrain.common.entity.ScheduleLog;
 
 /**
  * 

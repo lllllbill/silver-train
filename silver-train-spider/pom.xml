@@ -7,6 +7,7 @@
   </parent>
   <artifactId>silver-train-spider</artifactId>
   <name>silver-train-spider</name>
+  <version>1.0.0-SNAPSHOT</version>
   <properties>
   		<webmagic.version>0.7.3</webmagic.version>
   </properties>
@@ -21,6 +22,11 @@
 	    <groupId>us.codecraft</groupId>
 	    <artifactId>webmagic-extension</artifactId>
 	    <version>${webmagic.version}</version>
-	</dependency>	
+	</dependency>
+	<dependency>
+	    <groupId>com.silver-train</groupId>
+	    <artifactId>silver-train-common</artifactId>
+	    <version>1.0.0-SNAPSHOT</version>
+	</dependency>
   </dependencies>
 </project>

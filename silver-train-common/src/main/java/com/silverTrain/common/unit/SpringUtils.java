@@ -1,4 +1,4 @@
-package com.silverTrain.schedule.unit;
+package com.silverTrain.common.unit;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;

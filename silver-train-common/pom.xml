@@ -7,4 +7,17 @@
   </parent>
   <artifactId>silver-train-common</artifactId>
   <name>silver-train-common</name>
+  
+  <properties>
+  		<common_lang.version>3.10</common_lang.version>
+  </properties>
+    
+  <dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${common_lang.version}</version>
+		</dependency>
+  </dependencies>
 </project>

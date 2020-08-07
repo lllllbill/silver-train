@@ -1,11 +1,12 @@
-package com.silverTrain.schedule.entity;
+package com.silverTrain.schedule.quartZ;
 
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
-import com.silverTrain.schedule.unit.TaskUtils;
+import com.silverTrain.common.entity.ScheduleJob;
+import com.silverTrain.common.unit.TaskUtils;
 
 
 /**

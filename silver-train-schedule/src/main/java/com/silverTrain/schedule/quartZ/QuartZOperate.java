@@ -8,14 +8,11 @@ import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
-import org.quartz.SchedulerFactory;
 import org.quartz.TriggerBuilder;
 import org.quartz.TriggerKey;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.silverTrain.schedule.entity.QuartzJobFactory;
-import com.silverTrain.schedule.entity.QuartzJobFactoryDisallowConcurrentExecution;
-import com.silverTrain.schedule.entity.ScheduleJob;
+import com.silverTrain.common.entity.ScheduleJob;
 
 import lombok.extern.slf4j.Slf4j;
 

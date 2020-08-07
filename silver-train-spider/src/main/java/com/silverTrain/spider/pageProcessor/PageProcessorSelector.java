@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.silverTrain.schedule.entity.PageProcessorConfig;
+import com.silverTrain.common.entity.PageProcessorConfig;
+import com.silverTrain.common.unit.SpringUtils;
 import com.silverTrain.schedule.mapper.PageProcessorConfigMapper;
-import com.silverTrain.schedule.unit.SpringUtils;
 
 import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.Page;

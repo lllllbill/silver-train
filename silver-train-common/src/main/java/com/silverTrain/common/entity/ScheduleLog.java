@@ -1,4 +1,4 @@
-package com.silverTrain.schedule.entity;
+package com.silverTrain.common.entity;
 
 import java.util.Date;
 

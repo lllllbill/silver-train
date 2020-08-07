@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.silverTrain.schedule.entity.PageProcessorConfig;
+import com.silverTrain.common.entity.PageProcessorConfig;
 import com.silverTrain.schedule.mapper.PageProcessorConfigMapper;
 
 public class PageProcessorCondition implements Condition {

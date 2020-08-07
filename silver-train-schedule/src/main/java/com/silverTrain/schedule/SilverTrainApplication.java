@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.silverTrain")
 @MapperScan("com.silverTrain.schedule.mapper")
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class SilverTrainApplication {

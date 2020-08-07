@@ -2,7 +2,7 @@ package com.silverTrain.spider.core;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.silverTrain.schedule.entity.PageResource;
+import com.silverTrain.common.entity.PageResource;
 import com.silverTrain.schedule.mapper.PageResourceMapper;
 
 import lombok.extern.slf4j.Slf4j;
