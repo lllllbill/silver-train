@@ -5,10 +5,9 @@ import com.silverTrain.spider.pageProcessor.LinkedPageProcessor;
 import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.Page;
 import us.codecraft.webmagic.Site;
-import us.codecraft.webmagic.processor.PageProcessor;
 
 @Slf4j
-public class DoNewsIdonewsDetailPageProcessor extends LinkedPageProcessor implements PageProcessor{
+public class DoNewsIdonewsDetailPageProcessor extends LinkedPageProcessor {
 	
 	@Override
 	public void process(Page page) {

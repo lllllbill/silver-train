@@ -2,6 +2,8 @@ package com.silverTrain.spider.pageProcessor;
 
 import java.util.LinkedList;
 import java.util.List;
+
+import us.codecraft.webmagic.processor.PageProcessor;
 /**
  * 
 * @Title: LinkedPageProcessor.java
@@ -11,7 +13,7 @@ import java.util.List;
 * @date 2020年8月21日
 * @version V1.0
  */
-public abstract class LinkedPageProcessor{
+public abstract class LinkedPageProcessor implements PageProcessor{
 	protected boolean processorStatus =false;
 	
 	protected LinkedPageProcessor parentPageProcessor;
@@ -27,15 +29,6 @@ public abstract class LinkedPageProcessor{
 	protected boolean masterFlag = false;
 	
 	protected boolean leafFlag = false;
-	
-	LinkedPageProcessor(boolean masterFlag,boolean leafFlag,LinkedPageProcessor parentPageProcessor,LinkedPageProcessor childPageProcessor){
-		this.childPageProcessor = childPageProcessor;
-		this.parentPageProcessor = parentPageProcessor;
-		this.masterFlag = masterFlag;
-		this.leafFlag = leafFlag;
-		this.urlNum = 0;
-		taskList = new LinkedList<>();
-	}
 	
 	public void setProcessorStatus(boolean processorStatus) {
 		this.processorStatus = processorStatus;
@@ -85,13 +78,17 @@ public abstract class LinkedPageProcessor{
 	
 	//启动按钮
 	protected synchronized boolean startProcessor(){
-		on();
-		taskList.clear();
-		this.urlNum = 0;
-		if(leafFlag||this.childPageProcessor.startProcessor()){
-			return true;
-		}else{
+		if(processorStatus){
 			return false;
+		}else{
+			on();
+			taskList.clear();
+			this.urlNum = 0;
+			if(leafFlag||this.childPageProcessor.startProcessor()){
+				return true;
+			}else{
+				return false;
+			}
 		}
 	}
 	//强制关闭按钮。(要不要只有master节点给操作？)
@@ -101,8 +98,8 @@ public abstract class LinkedPageProcessor{
 	
 	public void off(){
 		if(this.urlNum==0){
-			this.processorStatus = false;
 			if(!masterFlag){
+				this.processorStatus = false;
 				this.parentPageProcessor.off();
 			}else{
 				//该任务结束，通知task
