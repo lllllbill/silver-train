@@ -15,7 +15,8 @@ import java.sql.Date;
 @Data
 public class PageResource {
 	private String id;
-	private String taskId;
+	
+	private String processorId;
 	/**
 	 * 标题
 	 */

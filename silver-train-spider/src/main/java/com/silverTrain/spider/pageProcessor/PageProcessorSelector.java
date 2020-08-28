@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.silverTrain.common.entity.PageProcessorConfig;
+import com.silverTrain.common.entity.PageProcessor;
 import com.silverTrain.common.unit.SpringUtils;
 import com.silverTrain.schedule.mapper.PageProcessorConfigMapper;
 
@@ -70,11 +70,11 @@ public class PageProcessorSelector implements PageProcessor{
 	* @throws
 	 */
 	private Boolean init(){
-		QueryWrapper<PageProcessorConfig> wrapper = new QueryWrapper<PageProcessorConfig>();
+		QueryWrapper<PageProcessor> wrapper = new QueryWrapper<PageProcessor>();
 		wrapper.eq("status", "1");
-		List<PageProcessorConfig> processorConfig = pageProcessorConfigMapper.selectList(wrapper);
+		List<PageProcessor> processorConfig = pageProcessorConfigMapper.selectList(wrapper);
 		this.pageProcessorMap = new HashMap<String,PageProcessor>(processorConfig.size());
-		for(PageProcessorConfig entry:processorConfig){
+		for(PageProcessor entry:processorConfig){
 			PageProcessor processor = SpringUtils.getBean(entry.getClassName());
 			pageProcessorMap.put(entry.getRegex(), processor);
 		}

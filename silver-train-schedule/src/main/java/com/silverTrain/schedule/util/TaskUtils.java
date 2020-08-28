@@ -1,4 +1,4 @@
-package com.silverTrain.schedule.unit;
+package com.silverTrain.schedule.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

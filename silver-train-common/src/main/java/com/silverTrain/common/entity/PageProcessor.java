@@ -14,7 +14,7 @@ import lombok.Data;
 * @version V1.0
  */
 @Data
-public class PageProcessorConfig {
+public class PageProcessor {
 	/**
 	 * id
 	 */

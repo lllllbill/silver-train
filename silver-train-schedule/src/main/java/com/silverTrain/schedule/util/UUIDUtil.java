@@ -1,4 +1,4 @@
-package com.silverTrain.schedule.unit;
+package com.silverTrain.schedule.util;
 
 import java.util.Date;
 import java.util.UUID;
