@@ -77,7 +77,7 @@ public abstract class LinkedPageProcessor implements PageProcessor{
 	}
 	
 	//启动按钮
-	protected synchronized boolean startProcessor(){
+	public synchronized boolean startProcessor(){
 		if(processorStatus){
 			return false;
 		}else{

@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.silverTrain.common.entity.PageProcessor;
+import com.silverTrain.common.entity.PageProcessorTable;
 import com.silverTrain.common.unit.SpringUtils;
-import com.silverTrain.schedule.mapper.PageProcessorConfigMapper;
+import com.silverTrain.schedule.mapper.PageProcessorTableMapper;
 
 import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.Page;
@@ -32,7 +32,7 @@ import us.codecraft.webmagic.processor.PageProcessor;
 public class PageProcessorSelector implements PageProcessor{
 	
 	@Autowired
-	private PageProcessorConfigMapper pageProcessorConfigMapper;
+	private PageProcessorTableMapper pageProcessorTableMapper;
 	
     private Site site = Site.me().setRetryTimes(3).setSleepTime(1000).setTimeOut(10000);
     
@@ -70,11 +70,11 @@ public class PageProcessorSelector implements PageProcessor{
 	* @throws
 	 */
 	private Boolean init(){
-		QueryWrapper<PageProcessor> wrapper = new QueryWrapper<PageProcessor>();
+		QueryWrapper<PageProcessorTable> wrapper = new QueryWrapper<PageProcessorTable>();
 		wrapper.eq("status", "1");
-		List<PageProcessor> processorConfig = pageProcessorConfigMapper.selectList(wrapper);
-		this.pageProcessorMap = new HashMap<String,PageProcessor>(processorConfig.size());
-		for(PageProcessor entry:processorConfig){
+		List<PageProcessorTable> processorTable = pageProcessorTableMapper.selectList(wrapper);
+		this.pageProcessorMap = new HashMap<String,PageProcessor>(processorTable.size());
+		for(PageProcessorTable entry:processorTable){
 			PageProcessor processor = SpringUtils.getBean(entry.getClassName());
 			pageProcessorMap.put(entry.getRegex(), processor);
 		}

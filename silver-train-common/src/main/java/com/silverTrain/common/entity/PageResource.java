@@ -36,5 +36,5 @@ public class PageResource {
 	/**
 	 * 创建时间
 	 */
-	private Date makeTime;
+	private Date makeDate;
 }

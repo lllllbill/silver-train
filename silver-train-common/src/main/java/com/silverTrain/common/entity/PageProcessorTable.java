@@ -14,7 +14,7 @@ import lombok.Data;
 * @version V1.0
  */
 @Data
-public class PageProcessor {
+public class PageProcessorTable {
 	/**
 	 * id
 	 */
@@ -27,6 +27,8 @@ public class PageProcessor {
 	private Date createTime;
 
 	private Date updateTime;
+	
+	private String url;
 	
 	/**
 	 * 描述
