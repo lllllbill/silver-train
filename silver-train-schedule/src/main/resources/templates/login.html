@@ -1,0 +1,78 @@
+<html lang="zh-CN"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <!--  <form class="form-signin" id="login">-->
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" >
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" >
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block"  onclick="login()" >Sign in</button>
+        <div>
+	        <a href="localhost:8080/forget" >forget?</a>
+	        <a href="http://localhost:8080/register" style="float:right">register</a>
+        </div>
+     <!--  </form>--> 
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  
+
+	</body>
+	<script type="text/javascript">
+	 function login() {
+		 var email=$("#inputEmail").val();
+		 var password=$("#inputPassword").val();
+          $.ajax({
+         //几个参数需要注意一下
+             type: "POST",//方法类型
+             dataType: "json",//预期服务器返回的数据类型
+             url: "/login" ,//url
+             data: {"email":email,
+            	 	"password":password},
+             success: function (result) {
+                 console.log(result.value);//打印服务端返回的数据(调试用)
+                     if(result.value == "true"){
+                    	 window.location.href="http://localhost:8080/home";  
+                     }else{
+                    	 alert(result.message);  
+                     }
+             },
+             error : function() {
+                 
+             }
+         });
+     } 
+	</script>
+</html>

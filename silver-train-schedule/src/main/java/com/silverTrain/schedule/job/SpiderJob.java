@@ -2,10 +2,11 @@ package com.silverTrain.schedule.job;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -52,9 +53,9 @@ public class SpiderJob implements Job{
 		JobDataMap dataMap = context.getJobDetail().getJobDataMap();
 		String scheduleJobId = dataMap.getString("scheduleJobId");
 		//具有资源的task
-		List<String> haveResourceTaskList = new LinkedList<String>();
+		Set<String> haveResourceTaskList = new LinkedHashSet<String>();
 		//没有资源的task
-		List<String> noResourceTaskList = new LinkedList<String>();
+		Set<String> noResourceTaskList = new LinkedHashSet<String>();
 		//processor对应的task
 		Map<String,List<String>> processorWithTaskMap = new HashMap<String,List<String>>();
 		//获取该时间下的所有任务
@@ -68,7 +69,7 @@ public class SpiderJob implements Job{
 			wrapper2.eq("processorId",task.getProcessorId());
 			//如果没有满足的资源，并启动任务
 			if(pageResourceMapper.selectOne(wrapper2)==null){
-				noResourceTaskList.remove(task.getId());
+				noResourceTaskList.add(task.getId());
 				haveResourceTaskList.remove(task.getId());
 				if(processorWithTaskMap.containsKey(task.getProcessorId())){
 					processorWithTaskMap.get(task.getProcessorId()).add(task.getId());
