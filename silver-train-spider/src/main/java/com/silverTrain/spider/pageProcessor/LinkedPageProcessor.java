@@ -72,9 +72,6 @@ public abstract class LinkedPageProcessor implements PageProcessor{
 		}
 	}
 	
-	private void on(){
-		this.processorStatus = true;
-	}
 	
 	//启动按钮
 	public synchronized boolean startProcessor(){
@@ -105,6 +102,10 @@ public abstract class LinkedPageProcessor implements PageProcessor{
 				//该任务结束，通知task
 			}
 		}
+	}
+	
+	private void on(){
+		this.processorStatus = true;
 	}
 	
 	private synchronized void addUrlNum(int newUrlNum){

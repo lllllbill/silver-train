@@ -78,6 +78,7 @@ public class PageProcessorSelector implements PageProcessor{
 			PageProcessor processor = SpringUtils.getBean(entry.getClassName());
 			pageProcessorMap.put(entry.getRegex(), processor);
 		}
+		log.info("init PagePrcessorSelector");
 		return true;
 	}
 }

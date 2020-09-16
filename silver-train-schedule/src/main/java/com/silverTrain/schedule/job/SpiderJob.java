@@ -26,6 +26,7 @@ import com.silverTrain.schedule.mapper.PolymerizationTaskMapper;
 import com.silverTrain.spider.core.DoubleQueue;
 import com.silverTrain.spider.pageProcessor.LinkedPageProcessor;
 
+import lombok.extern.slf4j.Slf4j;
 import us.codecraft.webmagic.Request;
 /**
  * 
@@ -36,6 +37,7 @@ import us.codecraft.webmagic.Request;
 * @date 2020年8月28日
 * @version V1.0
  */
+@Slf4j
 public class SpiderJob implements Job{
 	@Autowired
 	private PolymerizationTaskMapper polymerizationMapper;
